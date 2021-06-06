@@ -3,6 +3,8 @@ package com.dea.cricketerwage.Data.Model;
 import lombok.Getter;
 import lombok.Setter;
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -17,4 +19,8 @@ public class Category extends BaseEntity {
 
     @Column(name = "category_name",nullable = false,updatable = true)
     private String name;
+
+    //one to many bidirectional
+    @OneToMany(cascade=CascadeType.ALL,mappedBy = "category")
+    private Set<Tier> tier;
 }

@@ -3,6 +3,7 @@ package com.dea.cricketerwage.Data.Model;
 import lombok.Getter;
 import lombok.Setter;
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -26,4 +27,14 @@ public class Game extends BaseEntity{
 
     @Column(name = "isDraw",nullable = false,updatable = true)
     private boolean isDraw;
+
+    //many to many bidirectionl
+    @ManyToMany
+    @JoinTable(name="game_players")
+    private Set<Player> players;
+
+     //Many to one unidirectional
+     @ManyToOne(optional = false)
+     @JoinColumn(name="series_id")
+     private Series series;
 }

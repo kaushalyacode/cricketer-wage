@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -24,4 +26,13 @@ public class Player extends BaseEntity{
 
     @Column(name = "player_age",nullable = false,updatable = false)
     private int age;
+
+    //many to many bidirectionl
+    @ManyToMany(mappedBy = "players")
+    private Set<Game> games;
+
+    //Many to one unidirectional
+    @ManyToOne(optional = false)
+    @JoinColumn(name="Category_id")
+    private Category category;
 }

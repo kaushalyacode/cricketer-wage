@@ -20,4 +20,9 @@ public class Tier extends BaseEntity{
 
     @Column(name = "tier_amount",nullable = false,updatable = true)
     private float amount;
+
+    //many to one bidirectional
+    @ManyToOne(optional = false)
+    @JoinColumn(name="category_id",nullable = false)
+    private Category category;
 }
