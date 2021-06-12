@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class TierViewModel  extends BaseEntityViewModel{
+public class TierViewModel {
 
     private int id;
 

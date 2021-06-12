@@ -7,7 +7,7 @@ import java.util.Collection;
 
 @Getter
 @Setter
-public class PlayerViewModel  extends BaseEntityViewModel{
+public class PlayerViewModel{
 
     private int id;
 
@@ -19,5 +19,6 @@ public class PlayerViewModel  extends BaseEntityViewModel{
 
     private int category_id;
 
-    private Collection<Integer> game_id;
+    private int tier_id;
+
 }

@@ -8,8 +8,8 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@Table(name = "Game" ,schema = "public")
-public class Game extends BaseEntity{
+@Table(name = "Game_details" ,schema = "public")
+public class Game{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,10 +28,8 @@ public class Game extends BaseEntity{
     @Column(name = "isDraw",nullable = false,updatable = true)
     private boolean isDraw;
 
-    //many to many bidirectionl
-    @ManyToMany
-    @JoinTable(name="game_players")
-    private Set<Player> players;
+    @OneToMany(mappedBy = "game")
+    Set<PlayGame> PlayerGame;
 
      //Many to one unidirectional
      @ManyToOne(optional = false)

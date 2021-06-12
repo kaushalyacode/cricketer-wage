@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SeriesViewModel  extends BaseEntityViewModel{
+public class SeriesViewModel {
 
     private int id;
 

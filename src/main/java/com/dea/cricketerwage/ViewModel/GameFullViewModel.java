@@ -21,7 +21,7 @@ public class GameFullViewModel {
 
     private boolean isDraw;
 
-    private Set<Player> players;
+    private Set<PlayerViewModel> players;
 
-    private Series series;
+    private SeriesViewModel series;
 }

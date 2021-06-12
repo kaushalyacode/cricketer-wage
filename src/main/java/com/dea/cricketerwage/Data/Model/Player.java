@@ -10,7 +10,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Table(name = "Player" ,schema = "public")
-public class Player extends BaseEntity{
+public class Player{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,12 +26,16 @@ public class Player extends BaseEntity{
     @Column(name = "player_age",nullable = false,updatable = false)
     private int age;
 
-    //many to many bidirectionl
-    @ManyToMany(mappedBy = "players")
-    private Set<Game> games;
+    @OneToMany(mappedBy = "player")
+    Set<PlayGame> PlayerGame;
 
     //Many to one unidirectional
     @ManyToOne(optional = false)
     @JoinColumn(name="Category_id")
     private Category category;
+
+    //Many to one unidirectional
+    @ManyToOne(optional = false)
+    @JoinColumn(name="Tier_id")
+    private Tier tier;
 }

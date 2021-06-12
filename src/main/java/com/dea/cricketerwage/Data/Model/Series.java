@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Table(name = "Series" ,schema = "public")
-public class Series extends BaseEntity{
+public class Series {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

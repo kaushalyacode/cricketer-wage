@@ -37,7 +37,15 @@ public class TierController {
     {
         var tiers = _iTierService.getAllTieries();
         Collection<TierViewModel> tierViewModels = new ArrayList<>();
-        tiers.forEach(tier -> tierViewModels.add(modelMapper.map(tier, TierViewModel.class)));
+        for (Tier t: tiers)
+        {
+            var tierViewModel = new TierViewModel();
+            tierViewModel.setId(t.getId());
+            tierViewModel.setName(t.getName());
+            tierViewModel.setAmount(t.getAmount());
+            tierViewModel.setCategory_id(t.getCategory().getId());
+            tierViewModels.add(tierViewModel);
+        }
         return tierViewModels;
     }
 
@@ -66,6 +74,7 @@ public class TierController {
         if(tier.isPresent())
         {
             TierViewModel singleTier = modelMapper.map(tier.get(), TierViewModel.class);
+            singleTier.setCategory_id(tier.get().getCategory().getId());
             return new ResponseEntity<>(singleTier, HttpStatus.CREATED);
         }else{
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);

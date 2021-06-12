@@ -2,6 +2,7 @@ package com.dea.cricketerwage.ViewModel;
 
 import com.dea.cricketerwage.Data.Model.Category;
 import com.dea.cricketerwage.Data.Model.Game;
+import com.dea.cricketerwage.Data.Model.Tier;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,7 +20,9 @@ public class PlayerFullViewModel {
 
     private int age;
 
-    private Set<Game> games;
+    private Set<GameViewModel> games;
 
-    private Category category;
+    private CategoryViewModel category;
+
+    private Tier tier;
 }

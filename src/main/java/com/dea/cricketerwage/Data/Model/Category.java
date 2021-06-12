@@ -9,7 +9,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Table(name = "Category" ,schema = "public")
-public class Category extends BaseEntity {
+public class Category{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

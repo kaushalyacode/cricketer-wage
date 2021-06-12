@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Table(name = "Tier" ,schema = "public")
-public class Tier extends BaseEntity{
+public class Tier {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "tier_id",nullable = false,updatable = false)
