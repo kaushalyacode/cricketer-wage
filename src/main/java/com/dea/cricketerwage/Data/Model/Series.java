@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -22,5 +21,4 @@ public class Series extends BaseEntity{
 
     @Column(name = "series_prize",nullable = false,updatable = true)
     private Float prize;
-
 }
