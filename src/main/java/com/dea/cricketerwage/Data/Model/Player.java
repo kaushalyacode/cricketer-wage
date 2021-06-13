@@ -29,6 +29,9 @@ public class Player{
     @OneToMany(mappedBy = "player")
     Set<PlayGame> PlayerGame;
 
+    @OneToMany(mappedBy = "player")
+    Set<PlaySeries> PlaySeries;
+
     //Many to one unidirectional
     @ManyToOne(optional = false)
     @JoinColumn(name="Category_id")

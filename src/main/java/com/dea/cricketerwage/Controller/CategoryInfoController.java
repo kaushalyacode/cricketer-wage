@@ -53,7 +53,7 @@ public class CategoryInfoController {
             CategoryViewModel singleCategory = modelMapper.map(category.get(), CategoryViewModel.class);
             return new ResponseEntity<>(singleCategory, HttpStatus.CREATED);
         }else {
-            return new ResponseEntity<>(null, HttpStatus.CREATED);
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
 }

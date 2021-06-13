@@ -59,12 +59,20 @@ public class GameController {
                       var singlePlayer = _iPlayerService.getPlayerById(id).get();
                       playGame.setGame(singleGame);
                       playGame.setPlayer(singlePlayer);
+                      if(gameViewModel.getManOfMatchId() == singlePlayer.getId())
+                      {
+                          playGame.setManOfMatch(true);
+                      }
+                      else{
+                          playGame.setManOfMatch(true);
+                      }
                       _iPlaGameService.addPlayGame(playGame);
                 }
             if (singleGame != null)
             {
                 var gm= modelMapper.map(singleGame,GameViewModel.class);
                 gm.setSeries_id(gameViewModel.getSeries_id());
+                gm.setManOfMatchId(gameViewModel.getManOfMatchId());
                 return new ResponseEntity<>(gm, HttpStatus.CREATED);
             }
             else {
@@ -94,6 +102,10 @@ public class GameController {
                 if(pg.getGame().getId()==g.getId()){
                     p.add(modelMapper.map(pg.getPlayer(),PlayerViewModel.class));
                 }
+                if(pg.isManOfMatch() ==true)
+                {
+                    gfm.setManOfTheMatchId(pg.getPlayer().getId());
+                }
             }
             gfm.setPlayers(p);
             gameViewModels.add(gfm);
@@ -114,6 +126,9 @@ public class GameController {
             for (PlayGame pg:allPlayGame) {
                 if(pg.getGame().getId()==game.get().getId()){
                     pid.add(pg.getPlayer().getId());
+                } if(pg.isManOfMatch() ==true)
+                {
+                   singleGame.setManOfMatchId(pg.getPlayer().getId());
                 }
             }
             singleGame.setPlayer_id(pid);

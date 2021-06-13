@@ -10,22 +10,22 @@ import javax.persistence.*;
 @Setter
 @ToString
 @Entity
-@Table(name="playerGame",schema = "public")
-public class PlayGame {
+@Table(name="playerSeries",schema = "public")
+public class PlaySeries {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "player_game_id",nullable = false,updatable = false)
+    @Column(name = "player_series_id",nullable = false,updatable = false)
     private int id;
-
-    @Column(name="isManOfMatch")
-    private boolean isManOfMatch;
 
     @ManyToOne
     @JoinColumn(name = "player_id")
     private Player player;
 
     @ManyToOne
-    @JoinColumn(name = "game_id")
-    private Game game;
+    @JoinColumn(name = "series_id")
+    private Series series;
 
+    @Column(name="isManOfSeries")
+    private boolean isManOfSeries;
 }

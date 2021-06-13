@@ -23,4 +23,6 @@ public class GameViewModel{
 
     private Collection<Integer>  player_id;
 
+    private int manOfMatchId;
+
 }
